@@ -53,12 +53,10 @@ public class Operations {
 		}
 			
 	public String capturescreenshot(){
-		File f=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File f= ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			String filepath = System.getProperty("User.home");
 			System.out.println("filepath is "+filepath);
-		//File f= new File("/screenshots/i.jpg");
-		//File f=((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(f,new File("G:/Learning/workspace_eclipse/selenium_artifactid/report/extentreport/todays/screenshot/"+i+".jpg"));
 		}
 		catch(Exception e) {

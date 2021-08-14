@@ -60,6 +60,7 @@ public class hello {
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.open('')");
 		Set <String> tabs = driver.getWindowHandles();
+		//driver.findElements(null);
 		System.out.println(tabs.size());
 		for(String e :tabs) {
 			System.out.println(e);
