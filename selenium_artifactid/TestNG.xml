@@ -2,15 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name = "TestNG_Suite">
 	<test name = "TestNG_Test">
+	 
 	<groups>
 	<run>
-	<!-- <include name="certs"/> -->
+	 <!--<include name="certs"/> -->
 	<include name="naukri"/>
 	<!-- <include name="naukri"/> -->
 	</run>
 	</groups>
+
+	
+	
 	<classes>
-	<class name = "selenium_artifactid.hello"></class>
+	<class name = "selenium_artifactid.Hello"></class>
 	</classes>
 	</test>
 </suite>

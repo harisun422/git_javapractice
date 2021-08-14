@@ -5,25 +5,71 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class hello {
+public class Hello {
+	
+	
+	Logger logger;
 	WebDriver driver;
 	String str;
 	Object obj;
-	@Test(groups= {"certs","jira","naukri","tabs"},priority=0)
+	
+	@BeforeTest
+	void logging() {
+		logger = LoggerFactory.getLogger(Hello.class);
+		PropertyConfigurator.configure("log4j.properties");
+				logger.info("Starting llogging");
+				System.out.println("strted logging");
+	}
+	@Parameters({"browser"})
+	@Test(groups= {"naukri"},priority=0)
+	public void choosedriver(String browser) {
+		System.out.println("Begin Remote run");
+		DesiredCapabilities cap = new DesiredCapabilities();
+		//DesiredCapabilities cap2 = DesiredCapabilities.chrome();
+		cap.setBrowserName("chrome");
+		cap.setPlatform(Platform.LINUX);
+		try {
+		URL url = new URL("https://172.17.0.1:6750/wd/hub");
+		
+	
+			System.setProperty("webdriver.chrome.driver","G:\\Learning\\Selenium\\chromedriver.exe");
+			driver = new RemoteWebDriver(url,cap);
+		}catch(MalformedURLException e) {
+			System.out.println("invalid url");
+		}
+	}
+	
+	@Test(groups= {"certs","jira","naukris","tabs"},priority=10)
 	public void instansiate_driver() {
+		//PropertyConfigurator.configure("log4j.properties");
+		logger.info("Starting llogging");
 		System.setProperty("webdriver.chrome.driver","G:\\Learning\\Selenium\\chromedriver.exe");
 		ChromeOptions co =new ChromeOptions();
 		co.setAcceptInsecureCerts(true);
@@ -129,7 +175,7 @@ public class hello {
 				driver.close();
 			}
 		}
-	
+	/*
 		
 		driver.switchTo().window(single);
 		By popups = By.xpath("//*[@id=\"geoLocPopUp\"]/span[text()=\"Later\"]");
@@ -140,7 +186,12 @@ public class hello {
 		Thread.sleep(5000);
 		driver.navigate().forward();
 		System.out.println("completed");
+		*/
 	}
 	
+	@AfterTest
+	void teardown() {
+		driver.quit();
+	}
 	
 }
