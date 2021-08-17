@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name = "TestNG_Suite">
 	<test name = "TestNG_Test">
-	 
+	 <parameter name="browser" value="hello"/>
 	<groups>
 	<run>
 	 <!--<include name="certs"/> -->
-	<include name="naukri"/>
+	<include name="remote"/>
 	<!-- <include name="naukri"/> -->
 	</run>
 	</groups>

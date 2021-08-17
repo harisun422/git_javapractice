@@ -19,8 +19,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterClass;
@@ -42,34 +43,35 @@ public class Hello {
 	
 	@BeforeTest
 	void logging() {
+		System.out.println("strted logging");
 		logger = LoggerFactory.getLogger(Hello.class);
 		PropertyConfigurator.configure("log4j.properties");
 				logger.info("Starting llogging");
 				System.out.println("strted logging");
 	}
-	@Parameters({"browser"})
-	@Test(groups= {"naukri"},priority=0)
-	public void choosedriver(String browser) {
-		System.out.println("Begin Remote run");
-		DesiredCapabilities cap = new DesiredCapabilities();
-		//DesiredCapabilities cap2 = DesiredCapabilities.chrome();
-		cap.setBrowserName("chrome");
-		cap.setPlatform(Platform.LINUX);
-		try {
-		URL url = new URL("https://172.17.0.1:6750/wd/hub");
-		
 	
-			System.setProperty("webdriver.chrome.driver","G:\\Learning\\Selenium\\chromedriver.exe");
-			driver = new RemoteWebDriver(url,cap);
-		}catch(MalformedURLException e) {
+	@Test(groups= {"remote"},priority=1)
+	public void choosedriver() {
+		System.out.println("Begin Remote run");
+		ChromeOptions co = new ChromeOptions();
+		try {
+		URL node1 = new URL("http://192.168.96.4:5050/wd/hub");
+		 co.setCapability("browserName", "chrome");
+	     co.setCapability("platform", "LINUX");
+				
+			//System.setProperty("webdriver.chrome.driver","G:\\Learning\\Selenium\\chromedriver.exe");
+			driver = new RemoteWebDriver(node1,co);
+			System.out.println("driver :"+driver);
+		}catch(Exception e) {
 			System.out.println("invalid url");
+			//e.printStackTrace();
 		}
 	}
 	
-	@Test(groups= {"certs","jira","naukris","tabs"},priority=10)
+	@Test(groups= {"certs","jira","naukri","tabs"},priority=1)
 	public void instansiate_driver() {
 		//PropertyConfigurator.configure("log4j.properties");
-		logger.info("Starting llogging");
+		//logger.info("Starting llogging");
 		System.setProperty("webdriver.chrome.driver","G:\\Learning\\Selenium\\chromedriver.exe");
 		ChromeOptions co =new ChromeOptions();
 		co.setAcceptInsecureCerts(true);
@@ -136,13 +138,19 @@ public class Hello {
 		driver.get("www.testng.org");
 		
 	}
-	
-	@Test(priority=2,groups={"naukri"})
-	public void openpage2() throws MalformedURLException {
+	@Parameters({"browser"})
+	@Test(priority=5,groups={"naukri","remote"})
+	public void openpage2(String param) throws MalformedURLException {
 		try {
+		System.out.println("Parameter passed is "+param);	
 		URL url_ulti = new URL("https://www.naukri.com/");
 		driver.navigate().to(url_ulti);
 		obj=driver.manage().getCookies();
+		Actions act = new Actions(driver);
+		act.contextClick(driver.findElement(By.id("login_Layer")));
+		Thread.sleep(14000);
+		//driver.findElement(By.xpath("//*[contains(text(),\"New Tab\")]")).click();
+		Thread.sleep(4000);
 		System.out.println("obj000 :"+obj);
 		Thread.sleep(5000);
 		obj=driver.manage().getCookies();
@@ -150,12 +158,14 @@ public class Hello {
 		driver.manage().deleteAllCookies();
 		obj=driver.manage().getCookies();
 		System.out.println("obj222 after delete :"+obj);
+		
+		driver.quit();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
-	@Test(priority=3,groups= {"jira","naukri"})
+	@Test(priority=3,groups= {"jira","naukri","remote"})
 	public void operations() throws Exception {
 		String single = driver.getWindowHandle();
 		Set<String> all= driver.getWindowHandles();
@@ -174,6 +184,7 @@ public class Hello {
 				System.out.println("closing");
 				driver.close();
 			}
+			
 		}
 	/*
 		
@@ -189,7 +200,7 @@ public class Hello {
 		*/
 	}
 	
-	@AfterTest
+	@AfterClass
 	void teardown() {
 		driver.quit();
 	}

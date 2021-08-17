@@ -10,7 +10,7 @@ public class Loggers {
 	 public static  Logger logger = LoggerFactory.getLogger(Loggers.class);
 	 
 	  public static void main(String[] args) {
-		  String log4jConfPath = "log4j.properties";
+		  String log4jConfPath = "src/resources/log4j.properties";
 		  PropertyConfigurator.configure(log4jConfPath);
 	    logger.info("Hello World");
 	    logger.warn("This is warning");
