@@ -6,13 +6,10 @@
 	<groups>
 	<run>
 	 <!--<include name="certs"/> -->
-	<include name="remote"/>
+	<include name="tags"/>
 	<!-- <include name="naukri"/> -->
 	</run>
 	</groups>
-
-	
-	
 	<classes>
 	<class name = "selenium_artifactid.Hello"></class>
 	</classes>

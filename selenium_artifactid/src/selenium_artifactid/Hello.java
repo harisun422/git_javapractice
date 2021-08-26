@@ -1,6 +1,9 @@
 package selenium_artifactid;
 
 
+import java.util.List;
+import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -12,10 +15,12 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -58,7 +63,7 @@ public class Hello {
 		URL node1 = new URL("http://192.168.96.4:5050/wd/hub");
 		 co.setCapability("browserName", "chrome");
 	     co.setCapability("platform", "LINUX");
-				
+		co.addArguments("--disable-notification");
 			//System.setProperty("webdriver.chrome.driver","G:\\Learning\\Selenium\\chromedriver.exe");
 			driver = new RemoteWebDriver(node1,co);
 			System.out.println("driver :"+driver);
@@ -136,7 +141,6 @@ public class Hello {
 		//((JavaScriptExecutor) driver).execute_script("window.open('');");
 		driver.switchTo().newWindow(WindowType.WINDOW);
 		driver.get("www.testng.org");
-		
 	}
 	@Parameters({"browser"})
 	@Test(priority=5,groups={"naukri","remote"})
@@ -145,19 +149,20 @@ public class Hello {
 		System.out.println("Parameter passed is "+param);	
 		URL url_ulti = new URL("https://www.naukri.com/");
 		driver.navigate().to(url_ulti);
-		obj=driver.manage().getCookies();
+		//obj=driver.manage().getCookies();
+		Set<Cookie> sobj =driver.manage().getCookies();
 		Actions act = new Actions(driver);
-		act.contextClick(driver.findElement(By.id("login_Layer")));
+		act.contextClick(driver.findElement(By.id("login_Layer"))).perform();
 		Thread.sleep(14000);
 		//driver.findElement(By.xpath("//*[contains(text(),\"New Tab\")]")).click();
 		Thread.sleep(4000);
-		System.out.println("obj000 :"+obj);
+		System.out.println("obj000 :"+sobj);
 		Thread.sleep(5000);
-		obj=driver.manage().getCookies();
-		System.out.println("obj111 :"+obj);
+		sobj=driver.manage().getCookies();
+		System.out.println("obj111 :"+sobj);
 		driver.manage().deleteAllCookies();
-		obj=driver.manage().getCookies();
-		System.out.println("obj222 after delete :"+obj);
+		sobj=driver.manage().getCookies();
+		System.out.println("obj222 after delete :"+sobj);
 		
 		driver.quit();
 		}catch(Exception e) {
@@ -201,8 +206,32 @@ public class Hello {
 	}
 	
 	@AfterClass
-	void teardown() {
+	public void teardown() {
 		driver.quit();
 	}
+	
+	@Test(groups={"naukri"},priority=6)
+	void brokenlinks() throws IOException {
+		List<WebElement> links = driver.findElements(By.tagName("a"));
+		List<URL> urls=null;
+		HttpURLConnection hconn;
+		int respcode=200;
+		for(WebElement we : links) {
+			urls.add(new URL(we.getAttribute("href")));
+			hconn = (HttpURLConnection)((new URL(we.getAttribute("href"))).openConnection());
+			
+			hconn.connect();
+			
+			respcode =hconn.getResponseCode();
+			
+			if(respcode>400) {
+				System.out.println(we.getAttribute("href")+" link is broken");
+			}else {
+				System.out.println(we.getAttribute("href")+" link is valid");
+			}
+		}
+		System.out.println("No of URLS : "+links.size());
+	}
+	
 	
 }

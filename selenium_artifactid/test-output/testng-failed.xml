@@ -6,13 +6,13 @@
     <parameter name="browser" value="hello"/>
     <groups>
       <run>
-        <include name="remote"/>
+        <include name="naukri"/>
       </run>
     </groups>
     <classes>
       <class name="selenium_artifactid.Hello">
         <methods>
-          <include name="operations"/>
+          <include name="brokenlinks"/>
         </methods>
       </class> <!-- selenium_artifactid.Hello -->
     </classes>

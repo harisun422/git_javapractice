@@ -23,7 +23,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,7 +37,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-TestNG_Suite" class="navigator-link">
-              <span class="suite-name border-passed">TestNG_Suite</span>
+              <span class="suite-name border-failed">TestNG_Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -58,7 +58,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-TestNG_Suite" class="navigator-link ">
-                    <span>3 groups</span>
+                    <span>5 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">4 methods, 1 failed,   3 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-TestNG_Suite" class="hide-methods failed suite-TestNG_Suite"> (hide)</a> <!-- hide-methods failed suite-TestNG_Suite -->
+                      <a href="#" panel-name="suite-TestNG_Suite" class="show-methods failed suite-TestNG_Suite"> (show)</a> <!-- show-methods failed suite-TestNG_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-TestNG_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-TestNG_Suite" title="selenium_artifactid.Hello" class="method navigator-link" hash-for-method="brokenlinks">brokenlinks</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-TestNG_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,7 +115,7 @@
                     <div class="method-list-content passed suite-TestNG_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-TestNG_Suite" title="selenium_artifactid.Hello" class="method navigator-link" hash-for-method="choosedriver">choosedriver</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-TestNG_Suite" title="selenium_artifactid.Hello" class="method navigator-link" hash-for-method="instansiate_driver">instansiate_driver</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -126,6 +140,35 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-TestNG_Suite" class="panel TestNG_Suite">
+          <div class="suite-TestNG_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">selenium_artifactid.Hello</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="brokenlinks">
+                  </a> <!-- brokenlinks -->
+                  <span class="method-name">brokenlinks</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+Build info: version: &apos;4.0.0-alpha-6&apos;, revision: &apos;5f43a29cfc&apos;
+System info: host: &apos;LAPTOP-6N2GONVC&apos;, ip: &apos;169.254.172.14&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.1&apos;
+Driver info: driver.version: RemoteWebDriver
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:127)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:582)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:362)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementsByTagName(RemoteWebDriver.java:416)
+	at org.openqa.selenium.By$ByTagName.findElements(By.java:346)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:320)
+	at selenium_artifactid.Hello.brokenlinks(Hello.java:216)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-TestNG_Suite-class-failed -->
           <div class="suite-TestNG_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -134,9 +177,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="choosedriver">
-                  </a> <!-- choosedriver -->
-                  <span class="method-name">choosedriver</span>
+                  <a name="instansiate_driver">
+                  </a> <!-- instansiate_driver -->
+                  <span class="method-name">instansiate_driver</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -170,7 +213,7 @@
     &lt;parameter name=&quot;browser&quot; value=&quot;hello&quot;/&gt;
     &lt;groups&gt;
       &lt;run&gt;
-        &lt;include name=&quot;remote&quot;/&gt;
+        &lt;include name=&quot;naukri&quot;/&gt;
       &lt;/run&gt;
     &lt;/groups&gt;
     &lt;classes&gt;
@@ -199,8 +242,20 @@
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="test-group">
+              <span class="test-group-name">certs</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">instansiate_driver</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
               <span class="test-group-name">jira</span>
               <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">instansiate_driver</span>
+                <br/>
+              </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">operations</span>
                 <br/>
@@ -209,6 +264,14 @@
             <div class="test-group">
               <span class="test-group-name">naukri</span>
               <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">brokenlinks</span>
+                <br/>
+              </div> <!-- method-in-group -->
+              <div class="method-in-group">
+                <span class="method-in-group-name">instansiate_driver</span>
+                <br/>
+              </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">openpage2</span>
                 <br/>
@@ -222,15 +285,19 @@
               <span class="test-group-name">remote</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">choosedriver</span>
-                <br/>
-              </div> <!-- method-in-group -->
-              <div class="method-in-group">
                 <span class="method-in-group-name">openpage2</span>
                 <br/>
               </div> <!-- method-in-group -->
               <div class="method-in-group">
                 <span class="method-in-group-name">operations</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">tabs</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">instansiate_driver</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -250,19 +317,23 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'openpage2')
+data.setCell(0, 1, 'operations')
 data.setCell(0, 2, 'selenium_artifactid.Hello')
-data.setCell(0, 3, 43081);
+data.setCell(0, 3, 69711);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'choosedriver')
+data.setCell(1, 1, 'openpage2')
 data.setCell(1, 2, 'selenium_artifactid.Hello')
-data.setCell(1, 3, 24419);
+data.setCell(1, 3, 32068);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'operations')
+data.setCell(2, 1, 'instansiate_driver')
 data.setCell(2, 2, 'selenium_artifactid.Hello')
-data.setCell(2, 3, 5206);
+data.setCell(2, 3, 3170);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'brokenlinks')
+data.setCell(3, 2, 'selenium_artifactid.Hello')
+data.setCell(3, 3, 11);
 window.suiteTableData['TestNG_Suite']= { tableData: data, tableDiv: 'times-div-TestNG_Suite'}
 return data;
 }
@@ -292,9 +363,9 @@ return data;
                 <br/>
                 <span class="ignored-method-name">openurl</span>
                 <br/>
-                <span class="ignored-method-name">instansiate_driver</span>
-                <br/>
                 <span class="ignored-method-name">certificate</span>
+                <br/>
+                <span class="ignored-method-name">choosedriver</span>
                 <br/>
                 <span class="ignored-method-name">newtab</span>
                 <br/>
@@ -310,16 +381,22 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">selenium_artifactid.Hello</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">choosedriver</span>
+                <span class="method-name">instansiate_driver</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">operations</span>
-                <span class="method-start">24423 ms</span>
+                <span class="method-start">3173 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">openpage2(hello)</span>
-                <span class="method-start">29636 ms</span>
+                <span class="method-start">72887 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">brokenlinks</span>
+                <span class="method-start">104959 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
