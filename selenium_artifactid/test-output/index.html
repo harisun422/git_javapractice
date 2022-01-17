@@ -58,7 +58,7 @@
                 </li>
                 <li>
                   <a href="#" panel-name="group-TestNG_Suite" class="navigator-link ">
-                    <span>5 groups</span>
+                    <span>6 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -153,7 +153,7 @@
                   <span class="method-name">brokenlinks</span>
                   <div class="stack-trace">org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
 Build info: version: &apos;4.0.0-alpha-6&apos;, revision: &apos;5f43a29cfc&apos;
-System info: host: &apos;LAPTOP-6N2GONVC&apos;, ip: &apos;169.254.172.14&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.1&apos;
+System info: host: &apos;LAPTOP-6N2GONVC&apos;, ip: &apos;169.254.196.142&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;16.0.1&apos;
 Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:127)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
@@ -162,7 +162,7 @@ Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementsByTagName(RemoteWebDriver.java:416)
 	at org.openqa.selenium.By$ByTagName.findElements(By.java:346)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:320)
-	at selenium_artifactid.Hello.brokenlinks(Hello.java:216)
+	at selenium_artifactid.Hello.brokenlinks(Hello.java:257)
 ... Removed 24 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -301,6 +301,14 @@ Driver info: driver.version: RemoteWebDriver
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
+            <div class="test-group">
+              <span class="test-group-name">upload</span>
+              <br/>
+              <div class="method-in-group">
+                <span class="method-in-group-name">instansiate_driver</span>
+                <br/>
+              </div> <!-- method-in-group -->
+            </div> <!-- test-group -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="times-TestNG_Suite" class="panel">
@@ -319,26 +327,26 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'operations')
+data.setCell(0, 1, 'instansiate_driver')
 data.setCell(0, 2, 'selenium_artifactid.Hello')
-data.setCell(0, 3, 69711);
+data.setCell(0, 3, 398858);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'openpage2')
 data.setCell(1, 2, 'selenium_artifactid.Hello')
-data.setCell(1, 3, 32068);
+data.setCell(1, 3, 31690);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'instansiate_driver')
+data.setCell(2, 1, 'operations')
 data.setCell(2, 2, 'selenium_artifactid.Hello')
-data.setCell(2, 3, 3170);
+data.setCell(2, 3, 16846);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'brokenlinks')
 data.setCell(3, 2, 'selenium_artifactid.Hello')
-data.setCell(3, 3, 11);
+data.setCell(3, 3, 4);
 window.suiteTableData['TestNG_Suite']= { tableData: data, tableDiv: 'times-div-TestNG_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 7 minutes</span>
               <div id="times-div-TestNG_Suite">
               </div> <!-- times-div-TestNG_Suite -->
             </div> <!-- times-div -->
@@ -353,7 +361,7 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-TestNG_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">5 ignored methods</span>
+            <span class="header-content">7 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
@@ -363,11 +371,15 @@ return data;
                 <br/>
                 <span class="ignored-method-name">openurl</span>
                 <br/>
+                <span class="ignored-method-name">uploadfiles1</span>
+                <br/>
                 <span class="ignored-method-name">certificate</span>
                 <br/>
                 <span class="ignored-method-name">choosedriver</span>
                 <br/>
                 <span class="ignored-method-name">newtab</span>
+                <br/>
+                <span class="ignored-method-name">readExcel</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -386,17 +398,17 @@ return data;
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">operations</span>
-                <span class="method-start">3173 ms</span>
+                <span class="method-start">398866 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">openpage2(hello)</span>
-                <span class="method-start">72887 ms</span>
+                <span class="method-start">415721 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">brokenlinks</span>
-                <span class="method-start">104959 ms</span>
+                <span class="method-start">447413 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

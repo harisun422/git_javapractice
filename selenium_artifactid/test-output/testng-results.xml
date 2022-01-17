@@ -2,40 +2,43 @@
 <testng-results total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-08-24T19:31:34Z" name="TestNG_Suite" finished-at="2021-08-24T19:33:19Z" duration-ms="105018">
+  <suite started-at="2021-12-08T14:01:53Z" name="TestNG_Suite" finished-at="2021-12-08T14:09:20Z" duration-ms="447448">
     <groups>
       <group name="naukri">
-        <method signature="Hello.brokenlinks()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="brokenlinks" class="selenium_artifactid.Hello"/>
-        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
-        <method signature="Hello.openpage2(java.lang.String)[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="openpage2" class="selenium_artifactid.Hello"/>
-        <method signature="Hello.operations()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="operations" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.brokenlinks()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="brokenlinks" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.openpage2(java.lang.String)[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="openpage2" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.operations()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="operations" class="selenium_artifactid.Hello"/>
       </group> <!-- naukri -->
+      <group name="upload">
+        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
+      </group> <!-- upload -->
       <group name="tabs">
-        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
       </group> <!-- tabs -->
       <group name="remote">
-        <method signature="Hello.openpage2(java.lang.String)[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="openpage2" class="selenium_artifactid.Hello"/>
-        <method signature="Hello.operations()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="operations" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.openpage2(java.lang.String)[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="openpage2" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.operations()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="operations" class="selenium_artifactid.Hello"/>
       </group> <!-- remote -->
       <group name="certs">
-        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
       </group> <!-- certs -->
       <group name="jira">
-        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
-        <method signature="Hello.operations()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" name="operations" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="instansiate_driver" class="selenium_artifactid.Hello"/>
+        <method signature="Hello.operations()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" name="operations" class="selenium_artifactid.Hello"/>
       </group> <!-- jira -->
     </groups>
-    <test started-at="2021-08-24T19:31:34Z" name="TestNG_Test" finished-at="2021-08-24T19:33:19Z" duration-ms="105018">
+    <test started-at="2021-12-08T14:01:53Z" name="TestNG_Test" finished-at="2021-12-08T14:09:20Z" duration-ms="447448">
       <class name="selenium_artifactid.Hello">
-        <test-method signature="instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" started-at="2021-08-25T01:01:34Z" name="instansiate_driver" finished-at="2021-08-25T01:01:38Z" duration-ms="3170" status="PASS">
+        <test-method signature="instansiate_driver()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" started-at="2021-12-08T19:31:53Z" name="instansiate_driver" finished-at="2021-12-08T19:38:31Z" duration-ms="398858" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- instansiate_driver -->
-        <test-method signature="operations()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" started-at="2021-08-25T01:01:38Z" name="operations" finished-at="2021-08-25T01:02:47Z" duration-ms="69711" status="PASS">
+        <test-method signature="operations()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" started-at="2021-12-08T19:38:31Z" name="operations" finished-at="2021-12-08T19:38:48Z" duration-ms="16846" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- operations -->
-        <test-method signature="openpage2(java.lang.String)[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" started-at="2021-08-25T01:02:47Z" name="openpage2" finished-at="2021-08-25T01:03:19Z" duration-ms="32068" status="PASS">
+        <test-method signature="openpage2(java.lang.String)[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" started-at="2021-12-08T19:38:48Z" name="openpage2" finished-at="2021-12-08T19:39:20Z" duration-ms="31690" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -46,18 +49,18 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openpage2 -->
-        <test-method signature="brokenlinks()[pri:0, instance:selenium_artifactid.Hello@4c1d9d4b]" started-at="2021-08-25T01:03:19Z" name="brokenlinks" finished-at="2021-08-25T01:03:19Z" duration-ms="11" status="FAIL">
+        <test-method signature="brokenlinks()[pri:0, instance:selenium_artifactid.Hello@27ae2fd0]" started-at="2021-12-08T19:39:20Z" name="brokenlinks" finished-at="2021-12-08T19:39:20Z" duration-ms="4" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
               <![CDATA[Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.0.0-alpha-6', revision: '5f43a29cfc'
-System info: host: 'LAPTOP-6N2GONVC', ip: '169.254.172.14', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.1'
+System info: host: 'LAPTOP-6N2GONVC', ip: '169.254.196.142', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.1'
 Driver info: driver.version: RemoteWebDriver]]>
             </message>
             <full-stacktrace>
               <![CDATA[org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
 Build info: version: '4.0.0-alpha-6', revision: '5f43a29cfc'
-System info: host: 'LAPTOP-6N2GONVC', ip: '169.254.172.14', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.1'
+System info: host: 'LAPTOP-6N2GONVC', ip: '169.254.196.142', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.1'
 Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:127)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
@@ -66,7 +69,7 @@ Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementsByTagName(RemoteWebDriver.java:416)
 	at org.openqa.selenium.By$ByTagName.findElements(By.java:346)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElements(RemoteWebDriver.java:320)
-	at selenium_artifactid.Hello.brokenlinks(Hello.java:216)
+	at selenium_artifactid.Hello.brokenlinks(Hello.java:257)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

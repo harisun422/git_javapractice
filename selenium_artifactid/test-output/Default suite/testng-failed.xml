@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Default suite]">
+  <test parallel="none" name="Default test(failed)">
+    <classes>
+      <class name="selenium_artifactid.Hello">
+        <methods>
+          <include name="openpage2"/>
+          <include name="teardown"/>
+          <include name="brokenlinks"/>
+          <include name="newwindow"/>
+          <include name="instansiate_driver"/>
+          <include name="openurl"/>
+          <include name="uploadfiles1"/>
+          <include name="logging"/>
+          <include name="certificate"/>
+          <include name="operations"/>
+          <include name="readExcel"/>
+        </methods>
+      </class> <!-- selenium_artifactid.Hello -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

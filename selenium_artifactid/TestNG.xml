@@ -3,15 +3,19 @@
 <suite name = "TestNG_Suite">
 	<test name = "TestNG_Test">
 	 <parameter name="browser" value="hello"/>
+	 
 	<groups>
-	<run>
+	<run> 
 	 <!--<include name="certs"/> -->
-	<include name="tags"/>
+	<include name="naukri"/>
 	<!-- <include name="naukri"/> -->
+	
 	</run>
 	</groups>
+	
 	<classes>
 	<class name = "selenium_artifactid.Hello"></class>
+	<!-- <class name = "stepdefinition.abcd"></class> -->
 	</classes>
 	</test>
 </suite>

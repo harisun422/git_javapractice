@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [suitetest]">
+  <test name="testname(failed)">
+    <classes>
+      <class name="latestlearnings.endtoend">
+        <methods>
+          <include name="launchBrowser"/>
+        </methods>
+      </class> <!-- latestlearnings.endtoend -->
+    </classes>
+  </test> <!-- testname(failed) -->
+</suite> <!-- Failed suite [suitetest] -->

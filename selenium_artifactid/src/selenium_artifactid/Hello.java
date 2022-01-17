@@ -2,17 +2,28 @@ package selenium_artifactid;
 
 
 import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.PropertyConfigurator;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
@@ -27,6 +38,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterClass;
@@ -55,8 +67,35 @@ public class Hello {
 				System.out.println("strted logging");
 	}
 	
+	@Test(groups={"excel"})
+	void readExcel() {
+		try {
+			String path = System.getProperty("user.dir");
+			String name = "work.xlsx";
+			File f = new File(path+"\\Excel\\"+name);
+			f.getParentFile().mkdirs();
+			f.createNewFile();
+			//FileInputStream fr = new FileInputStream(f);
+			
+			Workbook wb = new XSSFWorkbook(path+"\\Excel\\"+name);
+			int val =(int) wb.getSheet("Sheet1").getRow(0).getLastCellNum();
+			System.out.println("val :"+val);
+			Cell c= wb.getSheet("Sheet1").getRow(2).createCell(7);
+			c.setCellValue(true);
+			//for(int i=0;i<wb.getSheet("Sheet1").getRow(0).getLastCellNum();i++)
+				//wb.getSheet("Sheet1").getRow(3).createCell(0).setCellValue("random");
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	@Test(groups= {"remote"},priority=1)
-	public void choosedriver() { 
+	public void choosedriver() throws Exception{ 
 		System.out.println("Begin Remote run");
 		ChromeOptions co = new ChromeOptions();
 		try {
@@ -71,9 +110,10 @@ public class Hello {
 			System.out.println("invalid url");
 			//e.printStackTrace();
 		}
+			
 	}
 	
-	@Test(groups= {"certs","jira","naukri","tabs"},priority=1)
+	@Test(groups= {"certs","jira","naukri","tabs","upload"},priority=-99)
 	public void instansiate_driver() {
 		//PropertyConfigurator.configure("log4j.properties");
 		//logger.info("Starting llogging");
@@ -88,6 +128,7 @@ public class Hello {
 		//obj=driver.manage().getCookies();
 		System.out.println("strs"+str);
 		//System.out.println("obj"+obj.toString());
+
 	}
 	@Test(groups={"jira"})
 	public void openurl() {
@@ -101,6 +142,7 @@ public class Hello {
 		String url = "https://expired.badssl.com/";
 		driver.manage().window().maximize();
 		driver.get(url);
+		
 	}
 	
 	@Test(groups= {"tabs"},priority=2)
@@ -111,7 +153,7 @@ public class Hello {
 		driver.navigate().to("https://www.ultimatix.net/");
 		//driver.findElement(By.tagName("body")).sendKeys(Keys.CONTROL+"t");
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.open('')");
+		jse.executeScript("window.open()");
 		Set <String> tabs = driver.getWindowHandles();
 		//driver.findElements(null);
 		System.out.println(tabs.size());
@@ -139,8 +181,8 @@ public class Hello {
 		//driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL+"n");
 		//ArrayList<String> tabs = (ArrayList<String>) driver.getWindowHandles();
 		//((JavaScriptExecutor) driver).execute_script("window.open('');");
-		driver.switchTo().newWindow(WindowType.WINDOW);
-		driver.get("www.testng.org");
+		driver.switchTo().newWindow(WindowType.TAB);
+		driver.navigate().to("www.github.com");
 	}
 	@Parameters({"browser"})
 	@Test(priority=5,groups={"naukri","remote"})
@@ -232,6 +274,43 @@ public class Hello {
 		}
 		System.out.println("No of URLS : "+links.size());
 	}
+	
+	@Test(groups={"upload"},priority=-4)
+	void uploadfiles1() {
+		driver.get("https://cloudconvert.com/pdf-to-txt");
+		driver.findElement(By.xpath("//button[contains(text(),'Select')]")).click();
+		uploadFiles2();
+	}
+	
+	
+	void uploadFiles2(){
+	try {
+		Date d= new Date();
+		DateFormat ft =new SimpleDateFormat("ddMMMyyyy");
+		String name= "File"+ft.format(d); 
+		File f =new File("Autoit/"+name+".au3");
+		System.out.println(System.getProperty("user.dir"));
+		String path = System.getProperty("user.dir")+"\\Autoit\\";
+		f.getParentFile().mkdirs();
+		f.createNewFile();
+		FileWriter wr = new FileWriter(f);
+		wr.write("ControlFocus(\"Open\",\"\",\"Edit1\")\r\n"
+				+ "ControlSetText(\"Open\",\"\",\"Edit1\",\"C:\\Users\\delluser\\Downloads\\Statement_2021MTH07.pdf\")\r\n"
+				+ "ControlClick(\"Open\",\"\",\"Button1\")");
+		wr.close();
+		Runtime.getRuntime().exec("C:\\Program Files (x86)\\AutoIt3\\Aut2exe\\Aut2exe /in \""+path+name+".au3\"");
+		
+		Thread.sleep(3000);
+		System.out.println(path+name+".exe");
+		Runtime.getRuntime().exec(path+name+".exe");
+		
+	}catch(Exception e) {
+		
+	}
+		
+	}
+	
+	
 	
 	
 }
