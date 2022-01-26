@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: TestSuite
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.996 sec <<< FAILURE!
-readExcel(selenium_artifactid.Hello)  Time elapsed: 0.985 sec  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "org.apache.poi.ss.usermodel.Row.createCell(int)" because the return value of "org.apache.poi.ss.usermodel.Sheet.getRow(int)" is null
-	at selenium_artifactid.Hello.readExcel(Hello.java:86)
-
